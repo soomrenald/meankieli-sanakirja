@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="gray">#757575</color>
+    <color name="ic_launcher_background">#4CAF50</color>
+    <color name="light_gray">#EEEEEE</color>
+    <color name="primary">#4CAF50</color>
+    <color name="primary_dark">#388E3C</color>
+    <color name="secondary">#8BC34A</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="add">Add</string>
+    <string name="add_entry">Add Entry</string>
+    <string name="added_by">Added By</string>
+    <string name="app_name">Meänkieli Dictionary</string>
+    <string name="cancel">Cancel</string>
+    <string name="exact_matches">Exact Matches (%d)</string>
+    <string name="examples">Examples:</string>
+    <string name="meankieli">Meänkieli:</string>
+    <string name="meankieli_word">Meänkieli Word</string>
+    <string name="no_matches">No matches found</string>
+    <string name="notes">Notes: %s</string>
+    <string name="part_of_speech">Part of Speech</string>
+    <string name="partial_matches">Partial Matches (%d)</string>
+    <string name="search_hint">Search word...</string>
+    <string name="swedish">Swedish:</string>
+    <string name="swedish_translation">Swedish Translation</string>
+    <style name="Theme.MeankieliDictionary" parent="Theme.Material3.Light">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary_dark</item>
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+    </style>
+</resources>

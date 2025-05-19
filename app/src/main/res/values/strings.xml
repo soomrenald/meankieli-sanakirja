@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Meänkieli Dictionary</string>
+    <string name="search_hint">Search word...</string>
+    <string name="add_entry">Add Entry</string>
+    <string name="meankieli_word">Meänkieli Word</string>
+    <string name="swedish_translation">Swedish Translation</string>
+    <string name="part_of_speech">Part of Speech</string>
+    <string name="added_by">Added By</string>
+    <string name="cancel">Cancel</string>
+    <string name="add">Add</string>
+    <string name="exact_matches">Exact Matches (%d)</string>
+    <string name="partial_matches">Partial Matches (%d)</string>
+    <string name="no_matches">No matches found</string>
+    <string name="examples">Examples:</string>
+    <string name="meankieli">Meänkieli:</string>
+    <string name="swedish">Swedish:</string>
+    <string name="notes">Notes: %s</string>
+</resources> 

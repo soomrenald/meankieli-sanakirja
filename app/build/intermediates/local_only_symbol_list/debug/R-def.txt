@@ -1,0 +1,30 @@
+R_DEF: Internal format may change without notice
+local
+color black
+color gray
+color ic_launcher_background
+color light_gray
+color primary
+color primary_dark
+color secondary
+color white
+drawable ic_launcher_foreground
+mipmap ic_launcher
+mipmap ic_launcher_round
+string add
+string add_entry
+string added_by
+string app_name
+string cancel
+string exact_matches
+string examples
+string meankieli
+string meankieli_word
+string no_matches
+string notes
+string part_of_speech
+string partial_matches
+string search_hint
+string swedish
+string swedish_translation
+style Theme.MeankieliDictionary
