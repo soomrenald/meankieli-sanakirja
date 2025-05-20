@@ -11,7 +11,7 @@
     <string name="add">Add</string>
     <string name="add_entry">Add Entry</string>
     <string name="added_by">Added By</string>
-    <string name="app_name">Meänkieli Dictionary</string>
+    <string name="app_name">Meänkieli Sanakirja</string>
     <string name="cancel">Cancel</string>
     <string name="exact_matches">Exact Matches (%d)</string>
     <string name="examples">Examples:</string>
@@ -21,7 +21,7 @@
     <string name="notes">Notes: %s</string>
     <string name="part_of_speech">Part of Speech</string>
     <string name="partial_matches">Partial Matches (%d)</string>
-    <string name="search_hint">Search word...</string>
+    <string name="search_hint">Sök svensk eller meänkieli</string>
     <string name="swedish">Swedish:</string>
     <string name="swedish_translation">Swedish Translation</string>
     <style name="Theme.MeankieliDictionary" parent="Theme.Material3.Light">

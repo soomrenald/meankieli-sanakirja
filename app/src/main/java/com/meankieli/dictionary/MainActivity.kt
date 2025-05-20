@@ -10,7 +10,6 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import com.meankieli.dictionary.data.SearchResult
-import com.meankieli.dictionary.ui.AddEntryDialog
 import com.meankieli.dictionary.ui.DictionaryScreen
 import com.meankieli.dictionary.ui.theme.MeankieliDictionaryTheme
 
@@ -36,11 +35,9 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    var showAddDialog by remember { mutableStateOf(false) }
                     var searchResult by remember { mutableStateOf<SearchResult?>(null) }
 
                     DictionaryScreen(
-                        onAddEntry = { showAddDialog = true },
                         searchResult = searchResult,
                         onSearch = { query ->
                             if (query.isNotBlank()) {
@@ -56,20 +53,6 @@ class MainActivity : ComponentActivity() {
                             }
                         }
                     )
-
-                    if (showAddDialog) {
-                        AddEntryDialog(
-                            onDismiss = { showAddDialog = false },
-                            onAddEntry = { meankieli, swedish, pos, user ->
-                                try {
-                                    dictionaryRepository.addEntry(meankieli, swedish, pos, user)
-                                    Log.d("MainActivity", "Added new entry: $meankieli")
-                                } catch (e: Exception) {
-                                    Log.e("MainActivity", "Error adding entry: $meankieli", e)
-                                }
-                            }
-                        )
-                    }
                 }
             }
         }

@@ -5,7 +5,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -13,14 +13,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.meankieli.dictionary.data.DictionaryEntry
 import com.meankieli.dictionary.data.SearchResult
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 @Composable
 fun DictionaryScreen(
-    onAddEntry: () -> Unit,
     searchResult: SearchResult?,
     onSearch: (String) -> Unit
 ) {
     var searchQuery by remember { mutableStateOf("") }
+    val coroutineScope = rememberCoroutineScope()
+    val searchDelay = 500L // 500ms delay
 
     Column(
         modifier = Modifier
@@ -30,16 +33,26 @@ fun DictionaryScreen(
         // Search bar
         OutlinedTextField(
             value = searchQuery,
-            onValueChange = { 
-                searchQuery = it
-                onSearch(it)
+            onValueChange = { newQuery -> 
+                searchQuery = newQuery
+                coroutineScope.launch {
+                    delay(searchDelay)
+                    if (newQuery == searchQuery) { // Only search if the query hasn't changed during the delay
+                        onSearch(newQuery)
+                    }
+                }
             },
             modifier = Modifier.fillMaxWidth(),
-            placeholder = { Text("Search word...") },
+            placeholder = { Text("Sök svenska eller meänkieli...") },
             leadingIcon = { Icon(Icons.Default.Search, contentDescription = "Search") },
             trailingIcon = {
-                IconButton(onClick = onAddEntry) {
-                    Icon(Icons.Default.Add, contentDescription = "Add Entry")
+                if (searchQuery.isNotEmpty()) {
+                    IconButton(onClick = { 
+                        searchQuery = ""
+                        onSearch("")
+                    }) {
+                        Icon(Icons.Default.Clear, contentDescription = "Clear Search")
+                    }
                 }
             }
         )
@@ -53,7 +66,7 @@ fun DictionaryScreen(
                 if (result.exactMatches.isNotEmpty()) {
                     item {
                         Text(
-                            "Exact Matches (${result.exactMatches.size})",
+                            "exakt matchning (${result.exactMatches.size})",
                             style = MaterialTheme.typography.h6,
                             modifier = Modifier.padding(vertical = 8.dp)
                         )
@@ -66,7 +79,7 @@ fun DictionaryScreen(
                 if (result.partialMatches.isNotEmpty()) {
                     item {
                         Text(
-                            "Partial Matches (${result.partialMatches.size})",
+                            "Delmatch (${result.partialMatches.size})",
                             style = MaterialTheme.typography.h6,
                             modifier = Modifier.padding(vertical = 8.dp)
                         )
